@@ -1,0 +1,8 @@
+projets/*/.env
+projects/*/vendor/*
+projects/*/node_modules/*
+projects/app/storage/debugbar/
+.vscode
+.idea
+tags
+*.swp

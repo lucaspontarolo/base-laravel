@@ -1,0 +1,22 @@
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+// Select2
+@import '~select2/src/scss/core';
+
+// Import SweetAlert2
+@import '~sweetalert2/src/sweetalert2';
+
+// Font Awesome
+$fa-font-path: '/fonts';
+@import '~@fortawesome/fontawesome-free/scss/fontawesome';
+@import '~@fortawesome/fontawesome-free/scss/regular';
+@import '~@fortawesome/fontawesome-free/scss/solid';
+@import '~@fortawesome/fontawesome-free/scss/brands';
+
+// Template
+@import 'template/style';
+
+// Custom Template
+@import 'custom/style';
+

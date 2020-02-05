@@ -1,0 +1,40 @@
+.table thead a {
+  font-weight: inherit;
+}
+
+.table-vcenter td,
+.table-vcenter th {
+  vertical-align: middle;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.section .section-header {
+  margin-bottom: 15px;
+}
+
+.alert {
+  margin-bottom: 15px;
+}
+
+table th[sortable] {
+  cursor: pointer;
+}
+
+.is-invalid + .select2-container .select2-selection {
+  border-color: $danger !important;
+}
+
+.section .section-header h1 {
+  .fas,
+  .far,
+  .fab,
+  .fal {
+    font-size: inherit;
+  }
+}
+
+// Fix flickering tooltip
+.popover, .tooltip { pointer-events: none !important; }
