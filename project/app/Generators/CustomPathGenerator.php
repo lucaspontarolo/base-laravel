@@ -2,10 +2,10 @@
 
 namespace App\Generators;
 
-use Spatie\MediaLibrary\Models\Media;
-use Spatie\MediaLibrary\PathGenerator\BasePathGenerator;
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
+use Spatie\MediaLibrary\Support\PathGenerator\DefaultPathGenerator;
 
-class CustomPathGenerator extends BasePathGenerator
+class CustomPathGenerator extends DefaultPathGenerator
 {
     public function getBasePath(Media $media): string
     {

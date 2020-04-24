@@ -42,7 +42,6 @@ mix.extract([
     'axios',
     'lodash',
     'jquery-mask-plugin',
-    'dayjs',
     'select2',
     'bs-custom-file-input'
 ]);

@@ -1,3 +1,3 @@
-FROM node:12.13.1
+FROM node:12.16.2
 
 WORKDIR /var/www/app

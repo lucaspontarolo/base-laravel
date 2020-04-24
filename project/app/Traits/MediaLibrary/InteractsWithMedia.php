@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Traits\HasMedia;
+namespace App\Traits\MediaLibrary;
 
 use Illuminate\Support\Str;
-use Spatie\MediaLibrary\HasMedia\HasMediaTrait as MediaTrait;
+use Spatie\MediaLibrary\InteractsWithMedia as BaseInteractsWithMedia;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
-trait HasMediaTrait
+trait InteractsWithMedia
 {
-    use MediaTrait;
+    use BaseInteractsWithMedia;
 
     public function addMediaWithHashedName($file)
     {

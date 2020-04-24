@@ -3,7 +3,7 @@
 namespace App\Builders;
 
 use Illuminate\Support\Collection;
-use Illuminate\Http\Resources\Json\Resource;
+use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Contracts\Support\Responsable;
 use App\Repositories\Repository;
 use App\Repositories\Criterias\Common\OrderResolvedByUrlCriteria;
@@ -17,7 +17,6 @@ class PaginationBuilder implements Responsable
     private $collection;
     private $repository;
     private $defaultOrderBy;
-    private $originalRepository;
 
     public function __construct()
     {
@@ -43,7 +42,6 @@ class PaginationBuilder implements Responsable
 
         $this->collection = null;
         $this->repository = $repository;
-        $this->originalRepository = clone $repository;
 
         return $this;
     }
@@ -58,7 +56,6 @@ class PaginationBuilder implements Responsable
     {
         $this->repository = null;
         $this->collection = $collection;
-        $this->originalRepository = null;
 
         return $this;
     }
@@ -69,7 +66,7 @@ class PaginationBuilder implements Responsable
      * Este método permite definir um único Resource para formatar
      * todos os elementos paginados.
      *
-     * @param Illuminate\Http\Resources\Json\Resource $resource
+     * @param \Illuminate\Http\Resources\Json\JsonResource $resource
      * @return App\Builders\PaginationBuilder
      */
     public function resource($resource)
@@ -155,7 +152,7 @@ class PaginationBuilder implements Responsable
             return $this->resource::collection($paginated);
         }
 
-        return Resource::collection($paginated);
+        return JsonResource::collection($paginated);
     }
 
     /**

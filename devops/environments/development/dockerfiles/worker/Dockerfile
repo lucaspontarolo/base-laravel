@@ -1,4 +1,4 @@
-FROM ambientum/php:7.3
+FROM ambientum/php:7.4
 
 USER root
 

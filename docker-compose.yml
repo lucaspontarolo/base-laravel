@@ -1,4 +1,4 @@
-version: '3'
+version: '3.7'
 
 volumes:
   postgres-data:
@@ -16,7 +16,6 @@ services:
     depends_on:
       - postgres
       - redis
-      - worker
 
   # Front NodeJS
   front:
@@ -47,13 +46,15 @@ services:
     volumes:
       - ./project:/var/www/app
     depends_on:
+      - app
       - postgres
       - redis
 
   # Redis
   redis:
     container_name: base-redis
-    image: redis:5.0.7-alpine
+    image: redis:5.0.7
+    command: --appendonly no
     volumes:
       - 'redis-data:/data'
     ports:

@@ -43,14 +43,11 @@ setup:
 	@echo "$(COLOR_INFO)==> Running migrations & seeding ...$(COLOR_RESET)"
 		@$(DC) exec app php artisan migrate --seed
 
-	@echo "$(COLOR_INFO)==> Generating passport keys ...$(COLOR_RESET)"
-		@$(DC) exec app php artisan passport:install $(out)
-
 	@echo "$(COLOR_INFO)==> Installing NPM dependencies ...$(COLOR_RESET)"
-		@$(DC) exec front npm ci
+		@$(DC) exec front yarn install
 
 	@echo "$(COLOR_INFO)==> Building NPM ...$(COLOR_RESET)"
-		@$(DC) exec -d front npm run dev
+		@$(DC) exec front yarn dev
 
 	@echo "$(COLOR_COMMENT)Admin: $(COLOR_RESET)http://localhost"
 	@echo "$(COLOR_COMMENT)Mailhog: $(COLOR_RESET)http://localhost:8025"
@@ -58,7 +55,7 @@ setup:
 ## Clear all application data and components
 clean:
 	@echo "$(COLOR_INFO)==> Cleaning node_modules NPM ...$(COLOR_RESET)"
-		@$(DC) run front npm cache clean --force
+		@$(DC) run front yarn cache clean
 		@$(DC) run front rm -rf node_modules
 
 	@echo "$(COLOR_INFO)==> Cleaning all laravel caches ...$(COLOR_RESET)"
