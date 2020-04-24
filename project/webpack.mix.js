@@ -1,4 +1,4 @@
-const mix = require('laravel-mix')
+const mix = require('laravel-mix');
 
 /*
  |--------------------------------------------------------------------------
@@ -11,29 +11,27 @@ const mix = require('laravel-mix')
  |
  */
 
-mix.webpackConfig((webpack) => {
+mix.webpackConfig(webpack => {
     return {
         resolve: {
             alias: {
                 '@': __dirname + '/resources/assets/js'
-            },
-        },
-        output: {
-            chunkFilename: 'assets/js/bundles/[name].[Chunkhash].js',
-        },
+            }
+        }
     };
+});
+
+mix.babelConfig({
+    plugins: ['@babel/plugin-syntax-dynamic-import']
 });
 
 // Copy images and fonts from 'resources/' to 'public/'
 mix.copyDirectory('resources/assets/img', 'public/assets/img');
 
 // Compiling assets
-mix
-    .js('resources/assets/js/app.js', 'public/assets/js')
+mix.js('resources/assets/js/app.js', 'public/assets/js')
     .sass('resources/assets/scss/app.scss', 'public/assets/css')
-    .options({
-        processCssUrls: false
-    })
+    .options({ processCssUrls: false })
     .copy('node_modules/@fortawesome/fontawesome-free/webfonts', 'public/fonts');
 
 // Third party libraries in vendor.js
